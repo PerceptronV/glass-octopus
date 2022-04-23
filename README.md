@@ -2,7 +2,7 @@
 
 _Easily overlay markers on top of images._
 
-Glass Octopus is a lightweight tool that allows you to easily inject a `Glass` (image) into any HTML element and place multiple Octopuses (markers) over it using JavaScript.
+Glass Octopus is a lightweight tool that allows you to easily inject a `Glass` (image) into any HTML element and place multiple Octopuses (markers) over it, built using vanilla JavaScript and CSS.
 
 ![Image showing Glass Octopus in action](glassoct.jpg)
 

@@ -1,0 +1,52 @@
+<!doctype html>
+
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <title>Glass Octupos Demo</title>
+
+    <!-- Link Glass Octopus stylesheet -->
+    <link href="../src/glassoct.css" rel="stylesheet">
+
+    <style>
+      /* Stylise image container */
+      #inject{
+        width: 1000px;
+        height: auto;
+      }
+    </style>
+
+  </head>
+
+  <body>
+
+    <!-- Create element to inject image -->
+    <div id="inject"></div>
+    Photo by <a href="https://unsplash.com/@howlingred70?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">howling red</a> on <a href="https://unsplash.com/s/photos/everest?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+
+    <!-- Import Glass Octopus JS library -->
+    <script src="../src/glassoct.js"></script>
+
+    <!-- Write script to add marker -->
+    <script>
+      // Create a `Glass` (image) object and inject it into an existing element with the `injectGlass` shorthand
+      var glass = injectGlass(document.getElementById("inject"), "everest.jpg");
+
+      // Add a default Octopus (marker) at x=260, y=280
+      // (For reference, x is 0 and y is 0 at top left of image)
+      glass.addOctopus(350, 288);
+
+      // Add a bigger Octopus
+      glass.addOctopus(502, 253, {radius: 11, margin: 8});
+
+      // Add a redder Octopus
+      glass.addOctopus(746, 147, {headColor: "#d9620d"});
+
+      // Add a more opaque Octupos
+      glass.addOctopus(902, 233, {headOpacity: 0.4, tailOpacity: 0.1});
+    </script>
+
+  </body>
+
+</html>

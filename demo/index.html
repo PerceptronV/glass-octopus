@@ -10,19 +10,17 @@
     <link href="../src/glassoct.css" rel="stylesheet">
 
     <style>
-      /* Stylise image container */
-      #inject{
-        width: 1000px;
-        height: auto;
-      }
     </style>
 
   </head>
 
   <body>
+    <div>
+      <h1>Glass Octopus Demo</h1>
+    </div>
 
     <!-- Create element to inject image -->
-    <div id="inject"></div>
+    <div id="inject" style="width: 1000px;"></div>
     Photo by <a href="https://unsplash.com/@howlingred70?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">howling red</a> on <a href="https://unsplash.com/s/photos/everest?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 
     <!-- Import Glass Octopus JS library -->
@@ -35,16 +33,20 @@
 
       // Add a default Octopus (marker) at x=260, y=280
       // (For reference, x is 0 and y is 0 at top left of image)
-      glass.addOctopus(350, 288);
+      glass.addOctopus(344, 280);
 
       // Add a bigger Octopus
-      glass.addOctopus(502, 253, {radius: 11, margin: 8});
+      glass.addOctopus(495, 245, {radius: 11, margin: 8});
 
       // Add a redder Octopus
-      glass.addOctopus(746, 147, {headColor: "#d9620d"});
+      glass.addOctopus(737, 139, {headColor: "#d9620d"});
+
+      // Add a smaller default Octopus at same location
+      // but using percent as unit (given image width of 1000px and height of 667px)
+      glass.addOctopus(73.7, (139 / 667) * 100, { radius: 5, margin: 2, positionUnit: "%" });
 
       // Add a more opaque Octopus
-      glass.addOctopus(902, 233, {headOpacity: 0.4, tailOpacity: 0.1});
+      glass.addOctopus(895, 225, {headOpacity: 0.4, tailOpacity: 0.1});
     </script>
 
   </body>

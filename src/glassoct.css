@@ -1,7 +1,16 @@
+.glass-oct-cont {
+  width: inherit;
+  height: inherit;
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+}
+
 .glass-oct-img {
   width: inherit;
   height: inherit;
-  position: relative;
+  margin: 0px;
+  padding: 0px;
 }
 
 .glass-oct-head {

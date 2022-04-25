@@ -17,7 +17,7 @@ _Image courtesy of [howling red](https://unsplash.com/@howlingred70?utm_source=u
 - [Glass Octopus](#glass-octopus)
   - [Getting Started](#getting-started)
   - [Demo](#demo)
-  - [Docs](#docs)
+  - [v1.0 Docs](#v10-docs)
 
 <br/>
 
@@ -70,7 +70,11 @@ Check out the demo file at [demo/index.html](./demo/index.html).
 
 <br/>
 
-## Docs
+## v1.0 Docs
+
+**THIS DOCUMENTATION IS OUTDATED FOR THE CURRENT REPO.**
+
+**DOCUMENTATION WILL BE UPDATED AT THE NEXT RELEASE.**
 
 ### `glassoct.js` Functions
 

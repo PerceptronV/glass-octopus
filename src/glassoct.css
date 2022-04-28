@@ -33,4 +33,6 @@
 .glass-oct-tent {
   position: absolute;
   height: auto;
+  padding: 0px;
+  margin: 0px;
 }

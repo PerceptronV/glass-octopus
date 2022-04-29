@@ -91,7 +91,7 @@ class Octopus {
     return this;
   }
 
-  delete() {
+  shatter() {
     this.head.remove();
     this.tail.remove();
   }
@@ -182,7 +182,7 @@ class Tentacle {
     return this;
   }
 
-  delete() {
+  shatter() {
     this.iconImg.remove();
     this.iconContainer.remove();
   }
@@ -288,7 +288,7 @@ class Glass {
 
     var octKeys = Object.keys(this.children);
     for (let ki in octKeys) {
-      this.children[octKeys[ki]].delete();
+      this.children[octKeys[ki]].shatter();
     }
 
     this.octopusesTank.remove();

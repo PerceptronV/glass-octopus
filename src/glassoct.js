@@ -90,6 +90,11 @@ class Octopus {
 
     return this;
   }
+
+  delete() {
+    this.head.remove();
+    this.tail.remove();
+  }
 }
 
 class Tentacle {
@@ -133,8 +138,6 @@ class Tentacle {
 
     this.iconContainer.style.left = this.num2string(tx - ax) + "px";
     this.iconContainer.style.top = this.num2string(ty - ay) + "px";
-
-    console.log(ax, ay, tx, ty);
   }
 
   update() {
@@ -177,6 +180,11 @@ class Tentacle {
     this.parent.octopusesTank.appendChild(this.iconContainer);
 
     return this;
+  }
+
+  delete() {
+    this.iconImg.remove();
+    this.iconContainer.remove();
   }
 }
 
@@ -237,7 +245,6 @@ class Glass {
     this.container.appendChild(this.image);
     this.container.setAttribute("glassoct-parent", this.id);
     this.container.onresize = function () {
-      console.log("resized");
       var parentId = this.getAttribute("glassoct-parent");
       GLASSOCT.glasses[parentId].updateChildren();
     };
@@ -272,6 +279,19 @@ class Glass {
     this.childrenCount += 1;
 
     return [this.childrenCount, newTcl];
+  }
+
+  shatter() {
+    this.container.remove();
+    this.image.remove();
+    this.rszObs.disconnect();
+
+    var octKeys = Object.keys(this.children);
+    for (let ki in octKeys) {
+      this.children[octKeys[ki]].delete();
+    }
+
+    this.octopusesTank.remove();
   }
 
   standardUnits(x, y, unit) {

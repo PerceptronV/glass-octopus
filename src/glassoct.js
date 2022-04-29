@@ -69,7 +69,7 @@ class Octopus {
     
     this.circularise(this.head, config.radius);
     this.head.style.backgroundColor = config.headColor;
-    this.head.style.opacity = config.headOpacity;
+    this.head.style.opacity = this.config.headOpacity;
     this.head.classList.add("glass-oct-head");
 
     // -------------------------------------------- //
@@ -78,7 +78,7 @@ class Octopus {
     
     this.circularise(this.tail, config.radius + config.margin);
     this.tail.style.backgroundColor = config.tailColor;
-    this.tail.style.opacity = config.tailOpacity;
+    this.tail.style.opacity = this.config.tailOpacity;
     this.tail.classList.add("glass-oct-tail");
 
     // -------------------------------------------- //
@@ -98,6 +98,7 @@ class Octopus {
 }
 
 class Tentacle {
+  id;
   targX;
   targY;
   iconImg;
@@ -145,7 +146,7 @@ class Tentacle {
   }
 
   constructor(
-    targX, targY, iconPath, config, parentObj
+    targX, targY, iconPath, config, id, parentObj
   ) {
     if (!(config)) config = {};
 
@@ -158,6 +159,7 @@ class Tentacle {
 
     // -------------------------------------------- //
 
+    this.id = id;
     this.targX = targX;
     this.targY = targY;
     this.config = config;
@@ -173,10 +175,17 @@ class Tentacle {
     this.iconImg.src = iconPath;
     this.iconImg.style.width = this.num2string(this.config.width) + this.config.sizeUnit;
 
-    this.iconContainer.appendChild(this.iconImg);
+    this.iconImg.setAttribute("glassoct-parent", this.parent.id);
+    this.iconImg.setAttribute("tentacle-parent", this.id);
+    this.iconImg.onload = function () {
+      var parentId = this.getAttribute("glassoct-parent");
+      var tentId = this.getAttribute("tentacle-parent");
+      GLASSOCT.glasses[parentId].children[tentId].update();
+    };
 
     this.update();
 
+    this.iconContainer.appendChild(this.iconImg);
     this.parent.octopusesTank.appendChild(this.iconContainer);
 
     return this;
@@ -273,7 +282,7 @@ class Glass {
   ) {
     if (!(config)) config = {};
 
-    var newTcl = new Tentacle(targX, targY, iconPath, config, this);
+    var newTcl = new Tentacle(targX, targY, iconPath, config, this.childrenCount, this);
 
     this.children[this.childrenCount] = newTcl;
     this.childrenCount += 1;

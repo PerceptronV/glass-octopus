@@ -134,7 +134,7 @@ class Tentacle {
     this.iconContainer.style.left = this.num2string(tx - ax) + "px";
     this.iconContainer.style.top = this.num2string(ty - ay) + "px";
 
-    console.log(ax, ay, tx, ty);
+    //console.log(ax, ay, tx, ty);
   }
 
   update() {
@@ -237,7 +237,7 @@ class Glass {
     this.container.appendChild(this.image);
     this.container.setAttribute("glassoct-parent", this.id);
     this.container.onresize = function () {
-      console.log("resized");
+      //console.log("resized");
       var parentId = this.getAttribute("glassoct-parent");
       GLASSOCT.glasses[parentId].updateChildren();
     };
